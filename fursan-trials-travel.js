@@ -651,7 +651,7 @@ function fetchReviews() {
                 </div>
 
                 <div class="indoforall_clint_rate_info_div indoforall_animate_on_scroll">
-                    <img src="مكتب-سياحي/مكتب-سياحي-بحريني.webp" alt="رؤيا الشرق - مكتب سياحي" title="رؤيا الشرق - مكتب سياحي">
+                    <img src="مكتب-سياحي/مكتب-سياحي-بحريني.webp" alt="فرسان العالم - مكتب سياحي" title="فرسان العالم - مكتب سياحي">
                     <h4>${name}</h4>
                 </div>
 
