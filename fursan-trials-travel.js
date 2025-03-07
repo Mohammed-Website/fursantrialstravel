@@ -26,122 +26,127 @@ function closeSidebar() {
 
 
 
-const section = document.querySelector(".wow_effect_section");
+/* First Section Background Design */
+const canvas = document.getElementById("neon_canvas");
+const ctx = canvas.getContext("2d");
 
-function createFloatingElement() {
-    const element = document.createElement("div");
-    element.classList.add("floating_element");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-    // Random position
-    const posX = Math.random() * window.innerWidth;
-    const posY = Math.random() * window.innerHeight;
+const stars = [];
+const lanterns = [];
+const starCount = 80;
+const lanternCount = 4;
 
-    // Random size (more variation)
-    const size = Math.random() * 80 + 30; // Min 30px, Max 110px
-    element.style.width = `${size}px`;
-    element.style.height = `${size}px`;
-
-    // Random animation duration (slower movement)
-    const duration = Math.random() * 6 + 4; // 4s to 10s
-    element.style.animationDuration = `${duration}s`;
-
-    // Random blur for depth effect
-    const blurValue = Math.random() * 3 + 1;
-    element.style.filter = `blur(${blurValue}px)`;
-
-    // Random opacity for some circles to be more visible
-    element.style.opacity = Math.random() * 0.6 + 0.4; // Between 0.4 and 1
-
-    element.style.left = `${posX}px`;
-    element.style.top = `${posY}px`;
-
-    section.appendChild(element);
-
-    // Remove after animation ends
-    setTimeout(() => {
-        element.remove();
-    }, duration * 1000);
+function createStars() {
+    for (let i = 0; i < starCount; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.5 + 0.5,
+            speed: Math.random() * 0.2 + 0.1
+        });
+    }
 }
 
-// Generate floating elements continuously
-setInterval(createFloatingElement, 800);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const words = [
-    "رحلات سياحية",
-    "روسيا",
-    "اذربيجان",
-    "اندونيسيا",
-    "طرابزون",
-    "اسطنبول",
-    "ماليزيا",
-    "تايلاند",
-    "عروض سياحية",
-];
-
-let currentIndex = 1;
-const dynamicWordElement = document.getElementById("mughader_dynamic_word_switch");
-const lineTimerElement = document.getElementById("mughader_line_timer");
-
-// Ensure the initial word is visible
-dynamicWordElement.classList.add("visible");
-
-function updateTimerWidth() {
-    const wordWidth = dynamicWordElement.offsetWidth; // Get the width of the current word
-    const scaledWidth = wordWidth * 1; // Adjust width to 40% of the word's width (smaller)
-    lineTimerElement.style.width = `${scaledWidth}px`; // Set timer line width
-    lineTimerElement.style.margin = "0 auto"; // Center the timer under the text
+function createLanterns() {
+    for (let i = 0; i < lanternCount; i++) {
+        lanterns.push({
+            baseX: (canvas.width / (lanternCount + 1)) * (i + 1),
+            y: canvas.height * 0.85,
+            swingRange: Math.random() * 5 + 5, // Increase sway range
+            angle: Math.random() * Math.PI
+        });
+    }
 }
 
-function resetTimer() {
-    lineTimerElement.style.transition = "none"; // Disable transition to reset instantly
-    lineTimerElement.style.width = "0"; // Reset width to 0
-    setTimeout(() => {
-        lineTimerElement.style.transition = "width 1.8s linear"; // Reapply transition
-        lineTimerElement.style.width = `${dynamicWordElement.offsetWidth * 1}px`; // Start animation
-    }, 50); // Small delay to ensure transition is reapplied
+let time = 0;
+
+function drawCrescentMoon() {
+    const baseX = canvas.width - 150;
+    const moonY = 85;
+    const outerRadius = 50;
+    const innerRadius = 45;
+
+    // Stronger swaying movement
+    const swayX = Math.sin(time * 0.5) * 5; // Move left-right
+    const rotationAngle = Math.sin(time * 0.5) * 0.1; // Faster rocking effect
+
+    ctx.save(); // Save current state
+    ctx.translate(baseX + swayX, moonY); // Move to the moon's center
+    ctx.rotate(rotationAngle); // Apply faster rotation
+
+    ctx.fillStyle = "#FFD700";
+    ctx.shadowColor = "#FFD700";
+
+    ctx.beginPath();
+    ctx.arc(0, 0, outerRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.shadowBlur = 0;
+    ctx.globalCompositeOperation = "destination-out";
+
+    ctx.beginPath();
+    ctx.arc(20, -10, innerRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.globalCompositeOperation = "source-over";
+    ctx.restore(); // Restore original state
 }
 
-function changeWord() {
-    // Fade out by removing 'visible' class
-    dynamicWordElement.classList.remove("visible");
+function drawStars() {
+    stars.forEach((star) => {
+        ctx.globalAlpha = star.opacity;
+        ctx.fillStyle = "#FFD700";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#FFD700";
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
 
-    setTimeout(() => {
-        // Change word
-        dynamicWordElement.innerText = words[currentIndex];
-        currentIndex = (currentIndex + 1) % words.length;
-
-        // Fade in by adding 'visible' class
-        dynamicWordElement.classList.add("visible");
-
-        // Update timer width
-        updateTimerWidth();
-    }, 300); // Match CSS fade duration
-
-    // Reset and start the timer line animation
-    resetTimer();
+        star.opacity += star.speed * (Math.random() > 0.5 ? 1 : -1);
+        if (star.opacity < 0.3) star.opacity = 0.3;
+        if (star.opacity > 1) star.opacity = 1;
+    });
 }
 
-// Start the loop
-setInterval(changeWord, 1800); // Match the timer line animation duration
+function drawLanterns() {
+    lanterns.forEach((lantern, index) => {
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = "#FFA500";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#FFA500";
 
-// Adjust the timer width for the initial word
-updateTimerWidth();
-resetTimer(); // Start timer animation for the first word
+        // Stronger swinging movement
+        let swayX = lantern.baseX + Math.sin(time * 0.6 + index) * lantern.swingRange;
+
+        ctx.beginPath();
+        ctx.rect(swayX - 10, lantern.y, 20, 40);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(swayX, lantern.y + 40, 10, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+function animateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawCrescentMoon();
+    drawStars();
+    drawLanterns();
+
+    time += 0.05; // Adjust speed
+
+    requestAnimationFrame(animateCanvas);
+}
+
+createStars();
+createLanterns();
+animateCanvas();
+
 
 
 
@@ -343,8 +348,22 @@ scrollToWhoAreWe = function (elementIdName) {
             behavior: "smooth"
         });
     }
-
 }
+
+function scrollToMiddleOfElement(className) {
+    const element = document.querySelector(`.${className}`);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.scrollY;
+        const middlePosition = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
+
+        window.scrollTo({
+            top: middlePosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
 
 
 /* Header show or hide based on scrolling */
@@ -411,58 +430,67 @@ window.addEventListener('scroll', () => {
 // create all offers content functionality
 const sectionData = [
     {
+        title: 'أحدث العروض',
+        image_1: ['عروض-شركة-فرسان-العالم/احدث-العروض/1.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
+        image_2: ['عروض-شركة-فرسان-العالم/احدث-العروض/2.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
+        image_3: ['عروض-شركة-فرسان-العالم/احدث-العروض/3.jpg', 'رحلة اذربيجان 5 أيام | باكو & قبالا & شاهداغ'],
+        image_4: ['عروض-شركة-فرسان-العالم/احدث-العروض/4.jpg', 'رحلة اذربيجان 8 أيام | باكو & قبالا & شاهداغ'],
+        image_5: ['عروض-شركة-فرسان-العالم/احدث-العروض/5.jpg', 'رحلة اذربيجان 8 أيام'],
+    },
+
+    {
         title: 'عروض روسيا',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-روسيا/1.jpg', 'موسكو & بيترسبورغ & موسكو'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-روسيا/2.jpg', 'موسكو & بيترسبورغ & موسكو'],
-        image_3: ['عروض-شركة-فرسان-العالم/عروض-روسيا/3.jpg', 'موسكو & بيترسبورغ & موسكو'],
-        image_4: ['عروض-شركة-فرسان-العالم/عروض-روسيا/4.jpg', 'عرض روسيا البيضاء - 8 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/روسيا/1.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_2: ['عروض-شركة-فرسان-العالم/روسيا/2.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_3: ['عروض-شركة-فرسان-العالم/روسيا/3.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_4: ['عروض-شركة-فرسان-العالم/روسيا/4.jpg', 'رحلة روسيا البيضاء - 8 أيام'],
     },
 
     {
         title: 'عروض اذربيجان',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-اذربيجان/1.jpg', 'باكو & قبالا & شاهداغ'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-اذربيجان/2.jpg', 'باكو & قبالا & شاهداغ'],
-        image_3: ['عروض-شركة-فرسان-العالم/عروض-اذربيجان/3.jpg', 'عرض اذربيجان - 8 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/عروض-اذربيجان/4.jpg', 'عرض اذربيجان - 7 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/اذربيجان/1.jpg', 'رحلة باكو & قبالا & شاهداغ'],
+        image_2: ['عروض-شركة-فرسان-العالم/اذربيجان/2.jpg', 'رحلة باكو & قبالا & شاهداغ'],
+        image_3: ['عروض-شركة-فرسان-العالم/اذربيجان/3.jpg', 'رحلة اذربيجان - 8 أيام'],
+        image_4: ['عروض-شركة-فرسان-العالم/اذربيجان/4.jpg', 'رحلة اذربيجان - 7 أيام'],
     },
 
     {
         title: 'عروض اندونيسيا',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-اندونيسيا/1.jpg', 'عرض اندونيسيا - 8 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-اندونيسيا/2.jpg', 'عرض اندونيسيا - 10 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/اندونيسيا/1.jpg', 'رحلة اندونيسيا - 8 أيام'],
+        image_2: ['عروض-شركة-فرسان-العالم/اندونيسيا/2.jpg', 'رحلة اندونيسيا - 10 أيام'],
     },
 
     {
         title: 'عروض طرابزون',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-طرابزون/1.jpg', 'عرض طرابزون -  5 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-طرابزون/2.jpg', 'عرض طرابزون -  6 أيام'],
-        image_3: ['عروض-شركة-فرسان-العالم/عروض-طرابزون/3.jpg', 'عرض طرابزون -  7 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/عروض-طرابزون/4.jpg', 'عرض طرابزون -  8 أيام'],
-        image_5: ['عروض-شركة-فرسان-العالم/عروض-طرابزون/5.jpg', 'عرض طرابزون -  9 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/طرابزون/1.jpg', 'رحلة طرابزون -  5 أيام'],
+        image_2: ['عروض-شركة-فرسان-العالم/طرابزون/2.jpg', 'رحلة طرابزون -  6 أيام'],
+        image_3: ['عروض-شركة-فرسان-العالم/طرابزون/3.jpg', 'رحلة طرابزون -  7 أيام'],
+        image_4: ['عروض-شركة-فرسان-العالم/طرابزون/4.jpg', 'رحلة طرابزون -  8 أيام'],
+        image_5: ['عروض-شركة-فرسان-العالم/طرابزون/5.jpg', 'رحلة طرابزون -  9 أيام'],
     },
 
     {
         title: 'عروض اسطنبول',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/1.jpg', 'عرض اسطنبول -  5 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/2.jpg', 'عرض اسطنبول -  6 أيام'],
-        image_3: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/3.jpg', 'عرض اسطنبول -  7 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/4.jpg', 'عرض اسطنبول -  8 أيام'],
-        image_5: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/5.jpg', 'عرض اسطنبول -  9 أيام'],
-        image_6: ['عروض-شركة-فرسان-العالم/عروض-اسطنبول/6.jpg', 'عرض اسطنبول -  10 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/اسطنبول/1.jpg', 'رحلة اسطنبول -  5 أيام'],
+        image_2: ['عروض-شركة-فرسان-العالم/اسطنبول/2.jpg', 'رحلة اسطنبول -  6 أيام'],
+        image_3: ['عروض-شركة-فرسان-العالم/اسطنبول/3.jpg', 'رحلة اسطنبول -  7 أيام'],
+        image_4: ['عروض-شركة-فرسان-العالم/اسطنبول/4.jpg', 'رحلة اسطنبول -  8 أيام'],
+        image_5: ['عروض-شركة-فرسان-العالم/اسطنبول/5.jpg', 'رحلة اسطنبول -  9 أيام'],
+        image_6: ['عروض-شركة-فرسان-العالم/اسطنبول/6.jpg', 'رحلة اسطنبول -  10 أيام'],
     },
 
     {
         title: 'عروض ماليزيا',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-ماليزيا/1.jpg', 'عرض ماليزيا -  8 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-ماليزيا/2.jpg', 'عرض ماليزيا -  10 أيام'],
+        image_1: ['عروض-شركة-فرسان-العالم/ماليزيا/1.jpg', 'رحلة ماليزيا -  8 أيام'],
+        image_2: ['عروض-شركة-فرسان-العالم/ماليزيا/2.jpg', 'رحلة ماليزيا -  10 أيام'],
     },
 
     {
         title: 'عروض تايلاند',
-        image_1: ['عروض-شركة-فرسان-العالم/عروض-تايلاند/1.jpg', 'عرض تايلاند - 7 ليالي'],
-        image_2: ['عروض-شركة-فرسان-العالم/عروض-تايلاند/2.jpg', 'عرض تايلاند - 9 ليالي'],
-        image_3: ['عروض-شركة-فرسان-العالم/عروض-تايلاند/3.jpg', 'عرض تايلاند - 7 ليالي'],
-        image_4: ['عروض-شركة-فرسان-العالم/عروض-تايلاند/4.jpg', 'عرض تايلاند - 9 ليالي'],
+        image_1: ['عروض-شركة-فرسان-العالم/تايلاند/1.jpg', 'رحلة تايلاند - 7 ليالي'],
+        image_2: ['عروض-شركة-فرسان-العالم/تايلاند/2.jpg', 'رحلة تايلاند - 9 ليالي'],
+        image_3: ['عروض-شركة-فرسان-العالم/تايلاند/3.jpg', 'رحلة تايلاند - 7 ليالي'],
+        image_4: ['عروض-شركة-فرسان-العالم/تايلاند/4.jpg', 'رحلة تايلاند - 9 ليالي'],
     },
 ];
 
@@ -541,7 +569,7 @@ function openFullScreenImage(src, text) {
     const whatsappButton = document.createElement('a');
     whatsappButton.className = 'whatsapp_button';
     whatsappButton.innerText = 'إرسال هذا العرض';
-    whatsappButton.href = `https://wa.me/+966599091717?text=طلب%20حجز%20هذا%20العرض:%0A%0Ahttps://mohammed-website.github.io/fursantrialstravel/${encodeURIComponent(src)}`;
+    whatsappButton.href = `https://wa.me/+966599091717?text=💎%20طلب%20حجز%20عرض%20جديد%20💎%0A%0Aسلام%20عليكم،%20حاب%20أسأل%20عن%20عرض%0A*${encodeURIComponent(text)}*%0Aوحاب%20أعرف%20تفاصيل%20أكثر%20عن%20عروضكم%20المشابهة.%0A%0A🔗%20رابط%20صورة%20العرض:%0Ahttps://mohammed-website.github.io/fursantrialstravel/${encodeURIComponent(src)}%0A%0Aبإنتظار%20ردكم%20وشكرًا%20لكم`;
     fullScreenDiv.appendChild(whatsappButton);
 
     // Close on background click
