@@ -7,6 +7,8 @@ function toggleSidebar() {
     } else {
         sidebar.style.right = "0px"; // Show sidebar
         overlay.classList.add("active"); // Show overlay
+        document.addEventListener("click", outsideClickListener); // Add event listener
+        window.removeEventListener("scroll", handleScroll); // Disable scroll event
     }
 }
 
@@ -16,136 +18,44 @@ function closeSidebar() {
 
     sidebar.style.right = "-250px"; // Hide sidebar
     overlay.classList.remove("active"); // Hide overlay
+    document.removeEventListener("click", outsideClickListener); // Remove event listener
+    window.addEventListener("scroll", handleScroll); // Re-enable scroll event
 }
 
+function outsideClickListener(event) {
+    const sidebar = document.getElementById("mughader_mobile_sidebar");
 
-
-
-
-
-
-
-
-/* First Section Background Design */
-const canvas = document.getElementById("neon_canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const stars = [];
-const lanterns = [];
-const starCount = 80;
-const lanternCount = 4;
-
-function createStars() {
-    for (let i = 0; i < starCount; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 2 + 1,
-            opacity: Math.random() * 0.5 + 0.5,
-            speed: Math.random() * 0.2 + 0.1
-        });
+    // Check if the clicked target is outside the sidebar and the menu button
+    if (!sidebar.contains(event.target) && !event.target.closest(".mughader_mobile_menu_icon")) {
+        closeSidebar();
     }
 }
 
-function createLanterns() {
-    for (let i = 0; i < lanternCount; i++) {
-        lanterns.push({
-            baseX: (canvas.width / (lanternCount + 1)) * (i + 1),
-            y: canvas.height * 0.85,
-            swingRange: Math.random() * 5 + 5, // Increase sway range
-            angle: Math.random() * Math.PI
-        });
+// Scroll event handler
+function handleScroll() {
+    const currentScrollPosition = window.scrollY;
+    const header = document.getElementById("mughader_header");
+
+    if (currentScrollPosition > lastScrollPosition) {
+        // Scrolling down
+        header.classList.add("hidden");
+    } else {
+        // Scrolling up
+        header.classList.remove("hidden");
     }
+
+    lastScrollPosition = currentScrollPosition;
 }
 
-let time = 0;
+// Attach scroll event initially
+let lastScrollPosition = 0;
+window.addEventListener("scroll", handleScroll);
 
-function drawCrescentMoon() {
-    const baseX = canvas.width - 150;
-    const moonY = 85;
-    const outerRadius = 50;
-    const innerRadius = 45;
 
-    // Stronger swaying movement
-    const swayX = Math.sin(time * 0.5) * 5; // Move left-right
-    const rotationAngle = Math.sin(time * 0.5) * 0.1; // Faster rocking effect
 
-    ctx.save(); // Save current state
-    ctx.translate(baseX + swayX, moonY); // Move to the moon's center
-    ctx.rotate(rotationAngle); // Apply faster rotation
 
-    ctx.fillStyle = "#FFD700";
-    ctx.shadowColor = "#FFD700";
 
-    ctx.beginPath();
-    ctx.arc(0, 0, outerRadius, 0, Math.PI * 2);
-    ctx.fill();
 
-    ctx.shadowBlur = 0;
-    ctx.globalCompositeOperation = "destination-out";
-
-    ctx.beginPath();
-    ctx.arc(20, -10, innerRadius, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.globalCompositeOperation = "source-over";
-    ctx.restore(); // Restore original state
-}
-
-function drawStars() {
-    stars.forEach((star) => {
-        ctx.globalAlpha = star.opacity;
-        ctx.fillStyle = "#FFD700";
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = "#FFD700";
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-
-        star.opacity += star.speed * (Math.random() > 0.5 ? 1 : -1);
-        if (star.opacity < 0.3) star.opacity = 0.3;
-        if (star.opacity > 1) star.opacity = 1;
-    });
-}
-
-function drawLanterns() {
-    lanterns.forEach((lantern, index) => {
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = "#FFA500";
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = "#FFA500";
-
-        // Stronger swinging movement
-        let swayX = lantern.baseX + Math.sin(time * 0.6 + index) * lantern.swingRange;
-
-        ctx.beginPath();
-        ctx.rect(swayX - 10, lantern.y, 20, 40);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(swayX, lantern.y + 40, 10, 0, Math.PI * 2);
-        ctx.fill();
-    });
-}
-
-function animateCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    drawCrescentMoon();
-    drawStars();
-    drawLanterns();
-
-    time += 0.05; // Adjust speed
-
-    requestAnimationFrame(animateCanvas);
-}
-
-createStars();
-createLanterns();
-animateCanvas();
 
 
 
@@ -365,24 +275,6 @@ function scrollToMiddleOfElement(className) {
 }
 
 
-
-/* Header show or hide based on scrolling */
-const header = document.getElementById('mughader_header');
-let lastScrollPosition = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.scrollY;
-
-    if (currentScrollPosition > lastScrollPosition) {
-        // Scrolling down
-        header.classList.add('hidden');
-    } else {
-        // Scrolling up
-        header.classList.remove('hidden');
-    }
-
-    lastScrollPosition = currentScrollPosition;
-});
 
 
 
@@ -679,7 +571,7 @@ function fetchReviews() {
                 </div>
 
                 <div class="indoforall_clint_rate_info_div indoforall_animate_on_scroll">
-                    <img src="مكتب-سياحي/مكتب-سياحي-بحريني.webp" alt="فرسان العالم - مكتب سياحي" title="فرسان العالم - مكتب سياحي">
+                    <img src="مكتب-سياحي/مكتب-سياحي.webp" alt="فرسان العالم - مكتب سياحي" title="فرسان العالم - مكتب سياحي">
                     <h4>${name}</h4>
                 </div>
 
