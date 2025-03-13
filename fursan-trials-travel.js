@@ -436,31 +436,31 @@ function openFullScreenImage(src, text) {
 
     /* Create the sull screen container div */
     const fullScreenDiv = document.createElement('div');
-    fullScreenDiv.className = 'full_screen_container';
+    fullScreenDiv.className = 'fursan-trials-full-screen-container';
 
     // Add animation class for fade-in effect
     setTimeout(() => fullScreenDiv.classList.add('visible'), 10);
 
     const exitButton = document.createElement('button');
     exitButton.innerText = 'عودة';
-    exitButton.className = 'exit_button';
+    exitButton.className = 'fursan-trials-exit-button';
     exitButton.addEventListener('click', closeFullScreenImage);
     fullScreenDiv.appendChild(exitButton);
 
     const title = document.createElement('h2');
     title.innerText = text;
-    title.className = 'full_screen_title';
+    title.className = 'fursan-trials-full-screen-title';
     fullScreenDiv.appendChild(title);
 
     // Full-screen image
     const fullScreenImage = document.createElement('img');
     fullScreenImage.src = src;
-    fullScreenImage.className = 'full_screen_image';
+    fullScreenImage.className = 'fursan-trials-full-screen-image';
     fullScreenDiv.appendChild(fullScreenImage);
 
     // WhatsApp button
     const whatsappButton = document.createElement('a');
-    whatsappButton.className = 'whatsapp_button';
+    whatsappButton.className = 'fursan-trials-whatsapp-button';
     whatsappButton.innerText = 'إرسال هذا العرض';
     whatsappButton.href = `https://wa.me/+966599091717?text=💎%20طلب%20حجز%20عرض%20جديد%20💎%0A%0Aسلام%20عليكم،%20حاب%20أسأل%20عن%20عرض%0A*${encodeURIComponent(text)}*%0Aوحاب%20أعرف%20تفاصيل%20أكثر%20عن%20عروضكم%20المشابهة.%0A%0A🔗%20رابط%20صورة%20العرض:%0Ahttps://mohammed-website.github.io/fursantrialstravel/${encodeURIComponent(src)}%0A%0Aبإنتظار%20ردكم%20وشكرًا%20لكم`;
     fullScreenDiv.appendChild(whatsappButton);

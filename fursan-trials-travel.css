@@ -693,7 +693,7 @@ header.hidden {
 
 
 /* Full-Screen Container */
-.full-screen-container {
+.fursan-trials-full-screen-container {
   direction: ltr;
   position: fixed;
   top: 0;
@@ -711,13 +711,13 @@ header.hidden {
   z-index: 1000;
 }
 
-.full-screen-container.visible {
+.fursan-trials-full-screen-container.visible {
   opacity: 1;
   visibility: visible;
 }
 
 /* Exit Button */
-.exit-button {
+.fursan-trials-exit-button {
   background: #ff4d4d;
   border: none;
   color: white;
@@ -732,11 +732,11 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.exit-button:hover {
+.fursan-trials-exit-button:hover {
   background: #ff3333;
 }
 
-.full-screen-title {
+.fursan-trials-full-screen-title {
   font-size: 2rem;
   font-weight: bold;
   color: #2c3e50;
@@ -752,7 +752,7 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.full-screen-title::after {
+.fursan-trials-full-screen-title::after {
   content: "";
   display: block;
   width: 50px;
@@ -764,7 +764,7 @@ header.hidden {
 }
 
 /* Full-Screen Image */
-.full-screen-image {
+.fursan-trials-full-screen-image {
   background: transparent;
   max-width: 80vw;
   max-height: 60%;
@@ -778,7 +778,7 @@ header.hidden {
 }
 
 /* WhatsApp Button */
-.whatsapp-button {
+.fursan-trials-whatsapp-button {
   background: #009235;
   color: white;
   text-decoration: none;
@@ -792,7 +792,7 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.whatsapp-button:hover {
+.fursan-trials-whatsapp-button:hover {
   background: #20c357;
 }
 
@@ -1269,14 +1269,14 @@ footer * {
 
 /* For Laptop Screen Size */
 @media (min-width: 1024px) {
-  .full-screen-container {
+  .fursan-trials-full-screen-container {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
   }
 
-  .full-screen-image {
+  .fursan-trials-full-screen-image {
     max-width: 70vw;
     max-height: 70vh;
     margin-bottom: 20px;
@@ -1519,26 +1519,26 @@ footer * {
 
 
 
-  .full-screen-container {
+  .fursan-trials-full-screen-container {
     flex-direction: column;
     justify-content: center;
     padding: 20px 0;
     gap: 15px;
   }
 
-  .exit-button,
-  .full-screen-title,
-  .full-screen-image,
-  .whatsapp-button {
+  .fursan-trials-exit-button,
+  .fursan-trials-full-screen-title,
+  .fursan-trials-full-screen-image,
+  .fursan-trials-whatsapp-button {
     text-align: center;
   }
 
-  .full-screen-image {
+  .fursan-trials-full-screen-image {
     max-width: 95vw;
     max-height: 50vh;
   }
 
-  .exit-button {
+  .fursan-trials-exit-button {
     width: fit-content;
     padding: 2px 10px;
     margin-right: 10px;
@@ -1697,7 +1697,7 @@ footer * {
 
 
   /* Title */
-  .full-screen-title {
+  .fursan-trials-full-screen-title {
     font-size: 5vw;
     margin-bottom: 0;
   }
