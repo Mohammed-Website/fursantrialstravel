@@ -56,11 +56,6 @@
   direction: rtl;
 }
 
-:root {
-  --bg-color: #F0F4F8;
-  --text-color: #333333;
-}
-
 body {
   /* background: black; */
   background: white;
@@ -80,7 +75,7 @@ html {
 
 
 /* Special Style with Neon Effect */
-#mughader_chatbot_icon {
+#fursan-trials-chatbot-icon {
   z-index: 997;
   position: fixed;
   bottom: 40px;
@@ -95,17 +90,17 @@ html {
   transition: transform 0.3s ease;
 }
 
-#mughader_chatbot_icon img {
+#fursan-trials-chatbot-icon img {
   width: 100%;
   border-radius: 50%;
 }
 
-#mughader_chatbot_icon:hover {
+#fursan-trials-chatbot-icon:hover {
   transform: scale(1.1);
 }
 
 /* Chat Sidebar with Neon Effect */
-#mughader_chat_sidebar {
+#fursan-trials-chat-sidebar {
   z-index: 999;
   position: fixed;
   bottom: 0;
@@ -120,11 +115,11 @@ html {
   transition: transform 0.3s ease-in-out;
 }
 
-#mughader_chat_sidebar.active {
+#fursan-trials-chat-sidebar.active {
   transform: translateX(0);
 }
 
-#mughader_chat_header {
+#fursan-trials-chat-header {
   direction: rtl;
   background-color: #000;
   color: white;
@@ -134,11 +129,11 @@ html {
   align-items: center;
 }
 
-#mughader_chat_header h3 {
+#fursan-trials-chat-header h3 {
   margin: 0;
 }
 
-#mughader_close_chat {
+#fursan-trials-close-chat {
   background: none;
   border: none;
   color: white;
@@ -147,27 +142,27 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
-#mughader_close_chat:hover {
+#fursan-trials-close-chat:hover {
   color: #ff0000;
 }
 
-.mughader_message_box {
+.fursan-trials-message-box {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
   background: #000;
   color: #00eaff;
+  box-shadow: inset 0 0 5px #dcfcff;
 }
 
-#mughader_chat_input {
+#fursan-trials-chat-input {
   direction: rtl;
   padding: 10px 20px 20px 20px;
   display: flex;
   gap: 5px;
-  border-top: 1px solid #00eaff;
 }
 
-#mughader_chat_input textarea {
+#fursan-trials-chat-input textarea {
   direction: rtl;
   width: 100%;
   flex: 1;
@@ -181,11 +176,11 @@ html {
   align-content: center;
 }
 
-#mughader_chat_input textarea::placeholder {
+#fursan-trials-chat-input textarea::placeholder {
   color: white;
 }
 
-#mughader_chat_input button {
+#fursan-trials-chat-input button {
   background: #007081;
   color: white;
   padding: 0 2px;
@@ -197,7 +192,7 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
-#mughader_chat_input button:hover {
+#fursan-trials-chat-input button:hover {
   background: #005bb5;
 }
 
@@ -247,7 +242,7 @@ html {
 
 
 /* WhatsApp Icon with Neon Effect */
-.whatsapp_icon_div {
+.fursan-trials-whatsapp-icon-div {
   direction: ltr;
   z-index: 997;
   position: fixed;
@@ -265,11 +260,11 @@ html {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp_icon_div:hover {
+.fursan-trials-whatsapp-icon-div:hover {
   transform: scale(1.015);
 }
 
-.whatsapp_icon_div ion-icon {
+.fursan-trials-whatsapp-icon-div ion-icon {
   font-size: 2.5rem;
 }
 
@@ -288,7 +283,7 @@ html {
 
 
 /* Header Styling with Neon Background Animation */
-#mughader_header {
+#fursan-trials-header {
   background: rgb(167, 208, 226);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   position: sticky;
@@ -302,7 +297,7 @@ header.hidden {
   transform: translateY(-100%);
 }
 
-.mughader_header_container {
+.fursan-trials-header-container {
   direction: ltr;
   display: flex;
   justify-content: space-between;
@@ -311,16 +306,16 @@ header.hidden {
 }
 
 /* Logo */
-.mughader_header_logo {
-  width: 13rem;
+.fursan-trials-header-logo {
+  width: 15rem;
 }
 
 /* Navigation Links (Desktop) */
-.mughader_desktop_nav {
+.fursan-trials-desktop-nav {
   display: flex;
 }
 
-.mughader_nav_links {
+.fursan-trials-nav-links {
   direction: rtl;
   display: flex;
   list-style: none;
@@ -333,34 +328,30 @@ header.hidden {
 }
 
 /* Ensure social icons are in the same row */
-.mughader_social_icon {
+.fursan-trials-social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 /* Increase spacing slightly if needed */
-.mughader_nav_links li {
+.fursan-trials-nav-links li {
   display: flex;
   align-items: center;
 }
 
 /* Neon Text Effect */
-.mughader_nav_links a,
-.mughader_mobile_sidebar a {
+.fursan-trials-nav-links a,
+.fursan-trials-mobile-sidebar a {
+  text-decoration: none;
   color: black;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   font-weight: bold;
 }
 
-.mughader_nav_links a:hover,
-.mughader_mobile_sidebar a:hover {
-  color: #db7100;
-}
-
 /* Neon Social Icons */
-.mughader_social_icon ion-icon {
+.fursan-trials-social-icon ion-icon {
   background: linear-gradient(to right, #8a008a, #008888);
   color: white;
   font-size: 1.5rem;
@@ -369,12 +360,14 @@ header.hidden {
   transition: transform 0.3s ease-in-out;
 }
 
-.mughader_social_icon ion-icon:hover {
+.fursan-trials-social-icon ion-icon:hover {
   transform: scale(1.1);
 }
 
 /* Mobile Menu Icon */
-.mughader_mobile_menu_icon {
+.fursan-trials-mobile-menu-icon {
+  background: transparent;
+  border: none;
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -383,12 +376,12 @@ header.hidden {
 }
 
 /* Neon Sidebar */
-.mughader_mobile_sidebar {
-  background: black;
+.fursan-trials-mobile-sidebar {
+  background-color: black;
 }
 
 /* Sidebar (Mobile) */
-.mughader_mobile_sidebar {
+.fursan-trials-mobile-sidebar {
   background: black;
   z-index: 1000;
   position: fixed;
@@ -401,16 +394,16 @@ header.hidden {
   transition: right 0.3s ease;
 }
 
-.mughader_mobile_sidebar ul {
+.fursan-trials-mobile-sidebar ul {
   list-style: none;
   text-align: right;
 }
 
-.mughader_mobile_sidebar li {
+.fursan-trials-mobile-sidebar li {
   margin: 2rem 15px 0.5rem 0;
 }
 
-.mughader_mobile_sidebar a {
+.fursan-trials-mobile-sidebar a {
   text-decoration: none;
   color: white;
   font-size: 0.9rem;
@@ -418,18 +411,18 @@ header.hidden {
   cursor: pointer;
 }
 
-.mughader_mobile_sidebar a:hover {
+.fursan-trials-mobile-sidebar a:hover {
   color: #007bff;
 }
 
-.mughader_mobile_social_icons_div {
+.fursan-trials-mobile-social-icons-div {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 /* Sidebar Overlay */
-.mughader_sidebar_overlay {
+.fursan-trials-sidebar-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -443,13 +436,12 @@ header.hidden {
 }
 
 /* Sidebar Overlay with Neon Glow */
-.mughader_sidebar_overlay.active {
+.fursan-trials-sidebar-overlay.active {
   background: rgba(0, 0, 0, 0.7);
-  box-shadow: inset 0 0 50px #00eaff;
 }
 
 /* Close Icon */
-.mughader_mobile_sidebar .mughader_close_icon {
+.fursan-trials-mobile-sidebar .fursan-trials-close-icon {
   position: absolute;
   top: 10px;
   left: 15px;
@@ -460,15 +452,15 @@ header.hidden {
 }
 
 /* Neon Close Icon */
-.mughader_close_icon {
+.fursan-trials-close-icon {
+  background: transparent;
+  border: none;
   color: white;
-  text-shadow: 0 0 10px #ff0000;
   transition: transform 0.3s ease-in-out;
 }
 
-.mughader_close_icon:hover {
-  transform: rotate(180deg);
-  text-shadow: 0 0 20px #ff0000;
+.fursan-trials-close-icon:hover {
+  color: #ff0000;
 }
 
 /* Cool Animated Background */
@@ -497,8 +489,9 @@ header.hidden {
 
 
 
+
 /* Section Styling */
-.neon_section {
+.fursan-trials-intro-section {
   width: 100vw;
   background: var(--bg-color);
   overflow: hidden;
@@ -508,13 +501,13 @@ header.hidden {
   align-items: center;
 }
 
-.background_image {
+.fursan-trials-intro-image {
   width: 100%;
   height: 60vh;
 }
 
 /* Text Container */
-.neon_text_container {
+.fursan-trials-intro-text-container {
   text-align: center;
   z-index: 2;
   position: relative;
@@ -522,20 +515,19 @@ header.hidden {
 }
 
 /* Title Styling */
-.neon_title {
+.fursan-trials-intro-title {
   font-size: 2.5rem;
   font-weight: bold;
 }
 
 /* Subtitle Styling */
-.neon_subtitle {
+.fursan-trials-intro-subtitle {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: var(--text-color);
 }
 
 /* Button Styling */
-.neon_button {
+.fursan-trials-intro-button {
   margin-top: 20px;
   display: inline-block;
   padding: 10px 15px;
@@ -548,7 +540,7 @@ header.hidden {
   transition: all 0.2s ease-in-out;
 }
 
-.neon_button:hover {
+.fursan-trials-intro-button:hover {
   background: #005ec9;
   transform: scale(1.05);
 }
@@ -601,9 +593,8 @@ header.hidden {
 
 
 
-
 /* Section Styling */
-#scrollable_cards_section_id {
+#fursan-trials-scrollable-cards-section-id {
   padding: 20px;
   position: relative;
   overflow: hidden;
@@ -613,7 +604,7 @@ header.hidden {
 }
 
 /* Title Styling with Animated Background */
-.scrollable_section_title {
+.fursan-trials-scrollable-section-title {
   font-size: 2rem;
   font-weight: bold;
   text-align: right;
@@ -629,7 +620,7 @@ header.hidden {
 }
 
 /* Scrollable Row */
-.scrollable_cards_row {
+.fursan-trials-scrollable-cards-row {
   direction: rtl;
   display: flex;
   gap: 10px;
@@ -640,21 +631,21 @@ header.hidden {
 }
 
 /* Custom Scrollbar (Webkit) */
-.scrollable_cards_row::-webkit-scrollbar {
+.fursan-trials-scrollable-cards-row::-webkit-scrollbar {
   height: 8px;
 }
 
-.scrollable_cards_row::-webkit-scrollbar-thumb {
+.fursan-trials-scrollable-cards-row::-webkit-scrollbar-thumb {
   background-color: #457b9d;
   border-radius: 10px;
 }
 
-.scrollable_cards_row::-webkit-scrollbar-track {
+.fursan-trials-scrollable-cards-row::-webkit-scrollbar-track {
   background-color: #e0e0e0;
 }
 
 /* Individual Card Styling */
-.scrollable_card {
+.fursan-trials-scrollable-card {
   width: 20rem;
   background: #fff;
   border-radius: 7px;
@@ -666,7 +657,7 @@ header.hidden {
   align-items: center;
 }
 
-.scrollable_card img {
+.fursan-trials-scrollable-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -674,11 +665,11 @@ header.hidden {
   transition: transform 0.3s ease;
 }
 
-.scrollable_card img:hover {
+.fursan-trials-scrollable-card img:hover {
   transform: scale(1.05);
 }
 
-.scrollable_cards_container {
+.fursan-trials-scrollable-cards-container {
   margin-bottom: 4vmax;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
@@ -686,7 +677,7 @@ header.hidden {
   flex-direction: column;
 }
 
-.scrollable_cards_container+.scrollable_cards_container {
+.fursan-trials-scrollable-cards-container+.fursan-trials-scrollable-cards-container {
   margin-top: 30px;
 }
 
@@ -702,7 +693,7 @@ header.hidden {
 
 
 /* Full-Screen Container */
-.full_screen_container {
+.full-screen-container {
   direction: ltr;
   position: fixed;
   top: 0;
@@ -720,13 +711,13 @@ header.hidden {
   z-index: 1000;
 }
 
-.full_screen_container.visible {
+.full-screen-container.visible {
   opacity: 1;
   visibility: visible;
 }
 
 /* Exit Button */
-.exit_button {
+.exit-button {
   background: #ff4d4d;
   border: none;
   color: white;
@@ -741,11 +732,11 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.exit_button:hover {
+.exit-button:hover {
   background: #ff3333;
 }
 
-.full_screen_title {
+.full-screen-title {
   font-size: 2rem;
   font-weight: bold;
   color: #2c3e50;
@@ -761,7 +752,7 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.full_screen_title::after {
+.full-screen-title::after {
   content: "";
   display: block;
   width: 50px;
@@ -773,12 +764,13 @@ header.hidden {
 }
 
 /* Full-Screen Image */
-.full_screen_image {
+.full-screen-image {
   background: transparent;
   max-width: 80vw;
   max-height: 60%;
   margin-bottom: 20px;
   border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   object-fit: contain;
   margin-bottom: 20px;
   box-shadow: 0 0 5px #0ff, 0 0 5px #0ff;
@@ -786,7 +778,7 @@ header.hidden {
 }
 
 /* WhatsApp Button */
-.whatsapp_button {
+.whatsapp-button {
   background: #009235;
   color: white;
   text-decoration: none;
@@ -800,7 +792,7 @@ header.hidden {
   animation: zoomIn 0.5s ease;
 }
 
-.whatsapp_button:hover {
+.whatsapp-button:hover {
   background: #20c357;
 }
 
@@ -847,7 +839,7 @@ header.hidden {
 
 
 /* Fourth Section Style */
-.mughader_last_section {
+.fursan-trials-last-section {
   background: linear-gradient(90deg, #00172e, #003c78);
   display: flex;
   flex-direction: column;
@@ -855,7 +847,7 @@ header.hidden {
   align-items: center;
 }
 
-.mughader_last_section * {
+.fursan-trials-last-section * {
   color: white;
   direction: rtl;
   font-size: 1rem;
@@ -863,7 +855,7 @@ header.hidden {
 }
 
 /* Email Subscription Section */
-.enter_your_email_for_our_news_div {
+.fursan-trials-enter-your-email-for-our-news-div {
   margin-top: 20px;
   text-align: center;
   padding: 20px;
@@ -874,7 +866,7 @@ header.hidden {
 }
 
 /* Call to Action Text */
-.cta_text {
+.cta-text {
   font-size: 1.2rem;
   font-weight: bold;
   color: #ffffff;
@@ -882,7 +874,7 @@ header.hidden {
 }
 
 /* Email Subscription Form */
-.email_subscription_form {
+.fursan-trials-email-subscription-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -891,7 +883,7 @@ header.hidden {
 }
 
 /* Input Field */
-.email_subscription_form input {
+.fursan-trials-email-subscription-form input {
   width: 70%;
   padding: 10px 15px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -903,17 +895,16 @@ header.hidden {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.email_subscription_form input::placeholder {
+.fursan-trials-email-subscription-form input::placeholder {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.email_subscription_form input:focus {
+.fursan-trials-email-subscription-form input:focus {
   border-color: #00bcd4;
-  box-shadow: 0px 0px 8px rgba(0, 188, 212, 0.8);
 }
 
 /* Submit Button */
-.email_subscription_form button {
+.fursan-trials-email-subscription-form button {
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
@@ -926,7 +917,7 @@ header.hidden {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.email_subscription_form button:active {
+.fursan-trials-email-subscription-form button:active {
   transform: scale(0.95);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -971,12 +962,12 @@ header.hidden {
 
 
 /* Customers omments Section */
-.mughader_customers_comments_section {
+.fursan-trials-customers-comments-section {
   background: #f9f9f9;
   padding-top: 0.5vmax;
 }
 
-.mughader_customers_comments_section h6 {
+.fursan-trials-customers-comments-section h6 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #2c3e50;
@@ -991,7 +982,7 @@ header.hidden {
   position: relative;
 }
 
-.mughader_customers_comments_section h6::after {
+.fursan-trials-customers-comments-section h6::after {
   content: "";
   display: block;
   width: 50px;
@@ -1001,13 +992,13 @@ header.hidden {
   border-radius: 2px;
 }
 
-#indoforall_clint_rate_section {
+#fursan-trials-clint-rate-section {
   display: flex;
   overflow: hidden;
   border-radius: 3px;
 }
 
-#indoforall_clint_rate_area {
+#fursan-trials-clint-rate-area {
   background: #dadada;
   width: 100%;
   max-width: 100%;
@@ -1023,12 +1014,12 @@ header.hidden {
   scroll-snap-type: x mandatory;
 }
 
-#indoforall_clint_rate_area.show {
+#fursan-trials-clint-rate-area.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.indoforall_rate_div {
+.fursan-trials-rate-div {
   background: rgb(46, 46, 46);
   color: white;
   min-width: 35rem;
@@ -1043,43 +1034,43 @@ header.hidden {
   scroll-snap-align: center;
 }
 
-.indoforall_rate_div:hover {
+.fursan-trials-rate-div:hover {
   box-shadow: 0 0 3px 0.5px rgb(0, 255, 0);
 }
 
-.indoforall_clint_rate_date_div {
+.fursan-trials-clint-rate-date-div {
   display: flex;
   justify-content: flex-end;
 }
 
-.indoforall_clint_rate_date_div h3 {
+.fursan-trials-clint-rate-date-div h3 {
   font-size: 1rem;
   font-weight: 200;
 }
 
-.indoforall_clint_rate_info_div {
+.fursan-trials-clint-rate-info-div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.indoforall_clint_rate_info_div img {
+.fursan-trials-clint-rate-info-div img {
   width: 3.5rem;
   border-radius: 50%;
 }
 
-.indoforall_clint_rate_info_div h4 {
+.fursan-trials-clint-rate-info-div h4 {
   font-size: 1rem;
   margin-right: 10px;
 }
 
-.indoforall_clint_rate_comment_div {
+.fursan-trials-clint-rate-comment-div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.indoforall_clint_rate_comment_div h5 {
+.fursan-trials-clint-rate-comment-div h5 {
   font-size: 1.3rem;
   font-weight: 300;
   margin-top: 10px;
@@ -1087,7 +1078,7 @@ header.hidden {
   line-height: 1.4;
 }
 
-.indoforall_clint_rate_star_div {
+.fursan-trials-clint-rate-star-div {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
@@ -1097,7 +1088,7 @@ header.hidden {
 }
 
 /* Hide vertical scrollbar */
-#indoforall_clint_rate_area::-webkit-scrollbar {
+#fursan-trials-clint-rate-area::-webkit-scrollbar {
   display: none;
 }
 
@@ -1114,32 +1105,31 @@ header.hidden {
 
 
 /* Styling the main container */
-.indoforall_insert_comment_form_div {
+.fursan-trials-insert-comment-form-div {
   width: 55vw;
   margin: 10px auto;
   padding: 20px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 /* Styling the heading */
-.indoforall_insert_comment_form_div h3 {
+.fursan-trials-insert-comment-form-div h3 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 15px;
 }
 
 /* Form styling */
-#indoforall_comment_form {
+#fursan-trials-comment-form {
   display: flex;
   flex-direction: column;
   gap: 15px 0;
 }
 
 /* Label styling */
-#indoforall_comment_form label {
+#fursan-trials-comment-form label {
   font-size: 1rem;
   font-weight: bold;
   color: #000000;
@@ -1147,9 +1137,9 @@ header.hidden {
 }
 
 /* Input and textarea styling */
-#indoforall_comment_username,
-#indoforall_comment_text,
-#indoforall_comment_stars {
+#fursan-trials-comment-username,
+#fursan-trials-comment-text,
+#fursan-trials-comment-stars {
   width: 100%;
   padding: 10px 0;
   border: 1px solid #000000;
@@ -1158,19 +1148,19 @@ header.hidden {
 }
 
 /* Textarea specific styling */
-#indoforall_comment_text {
+#fursan-trials-comment-text {
   min-height: 80px;
   resize: vertical;
 }
 
 /* Select dropdown styling */
-#indoforall_comment_stars {
+#fursan-trials-comment-stars {
   cursor: pointer;
   background-color: #fff;
 }
 
 /* Submit button styling */
-#indoforall_comment_form button {
+#fursan-trials-comment-form button {
   background: linear-gradient(to top, rgb(0, 52, 82), rgb(0, 127, 200));
   color: white;
   font-size: 1rem;
@@ -1181,7 +1171,7 @@ header.hidden {
   transition: background 0.3s;
 }
 
-#indoforall_success_notification {
+#fursan-trials-success-notification {
   position: fixed;
   top: 50%;
   /* Start from the middle of the screen vertically */
@@ -1201,7 +1191,7 @@ header.hidden {
 }
 
 /* Show animation */
-#indoforall_success_notification.show {
+#fursan-trials-success-notification.show {
   opacity: 1;
   transform: translate(-50%, -50%);
   /* Move up to center smoothly */
@@ -1260,12 +1250,12 @@ footer * {
 @media(max-width:1250px) {
 
   /* Styling the main container */
-  .indoforall_insert_comment_form_div {
+  .fursan-trials-insert-comment-form-div {
     width: 80vw;
   }
 
   /* Form styling */
-  #indoforall_comment_form {
+  #fursan-trials-comment-form {
     gap: 5px 0;
   }
 
@@ -1279,14 +1269,14 @@ footer * {
 
 /* For Laptop Screen Size */
 @media (min-width: 1024px) {
-  .full_screen_container {
+  .full-screen-container {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
   }
 
-  .full_screen_image {
+  .full-screen-image {
     max-width: 70vw;
     max-height: 70vh;
     margin-bottom: 20px;
@@ -1301,12 +1291,13 @@ footer * {
 
 /* Responsive Design */
 @media (max-width: 950px) {
-  .neon_text_container {
+
+  .fursan-trials-intro-text-container {
     width: 90vw;
     padding: 10px 2px;
   }
 
-  .neon_title {
+  .fursan-trials-intro-title {
     font-size: 4.8vw;
   }
 
@@ -1318,20 +1309,20 @@ footer * {
 
 
   /* Offer Cards Section */
-  #scrollable_cards_section_id {
+  #fursan-trials-scrollable-cards-section-id {
     padding: 5px 2px;
   }
 
-  .scrollable_section_title {
+  .fursan-trials-scrollable-section-title {
     font-size: 4vw;
     margin-bottom: 1vmax;
   }
 
-  .scrollable_card {
+  .fursan-trials-scrollable-card {
     width: 40vw;
   }
 
-  .scrollable_cards_container {
+  .fursan-trials-scrollable-cards-container {
     margin-bottom: 0.1vmax;
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
@@ -1345,20 +1336,20 @@ footer * {
 
 
   /* About Us Section */
-  .mughader_last_section * {
+  .fursan-trials-last-section * {
     font-size: 2vw;
   }
 
-  .cta_text {
+  .cta-text {
     font-size: 3vw;
   }
 
-  .email_subscription_form button {
+  .fursan-trials-email-subscription-form button {
     padding: 0.5vmax 1vmax;
     font-size: 3vw;
   }
 
-  .email_subscription_form input {
+  .fursan-trials-email-subscription-form input {
     width: 75%;
     padding: 5px;
     font-size: 3.5vw;
@@ -1372,34 +1363,34 @@ footer * {
 
 
 
-  .indoforall_rate_div {
+  .fursan-trials-rate-div {
     min-width: 65vw;
     margin: 0 8px;
     padding: 5px 2px;
   }
 
-  .indoforall_clint_rate_date_div h3 {
+  .fursan-trials-clint-rate-date-div h3 {
     font-size: 2.5vw;
   }
 
-  .indoforall_clint_rate_info_div img {
+  .fursan-trials-clint-rate-info-div img {
     width: 5.5vw;
   }
 
-  .indoforall_clint_rate_info_div h4 {
+  .fursan-trials-clint-rate-info-div h4 {
     font-size: 2.5vw;
   }
 
-  .indoforall_clint_rate_comment_div h5 {
+  .fursan-trials-clint-rate-comment-div h5 {
     font-size: 2.5vw;
   }
 
-  .indoforall_clint_rate_star_div {
+  .fursan-trials-clint-rate-star-div {
     margin-top: 8px;
     font-size: 3.5vw;
   }
 
-  .indoforall_insert_comment_form_div h3 {
+  .fursan-trials-insert-comment-form-div h3 {
     font-size: 4vw;
   }
 
@@ -1412,11 +1403,11 @@ footer * {
 
 
   /* WhatsApp Code */
-  .whatsapp_icon_div {
+  .fursan-trials-whatsapp-icon-div {
     font-size: 2.8vw;
   }
 
-  .whatsapp_icon_div ion-icon {
+  .fursan-trials-whatsapp-icon-div ion-icon {
     font-size: 4vw;
   }
 
@@ -1425,12 +1416,12 @@ footer * {
 
 
   /* Chat Sidebar */
-  #mughader_chat_sidebar {
+  #fursan-trials-chat-sidebar {
     width: 100vw;
   }
 
   /* Chatbot Icon */
-  #mughader_chatbot_icon {
+  #fursan-trials-chatbot-icon {
     width: 8vmax;
   }
 
@@ -1447,12 +1438,12 @@ footer * {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .mughader_desktop_nav {
+  .fursan-trials-desktop-nav {
     display: none;
     /* Hide desktop navigation */
   }
 
-  .mughader_mobile_menu_icon {
+  .fursan-trials-mobile-menu-icon {
     display: block;
     /* Show mobile menu icon */
   }
@@ -1466,15 +1457,15 @@ footer * {
 
 
   /* First Section Subtitle Styling */
-  .neon_subtitle {
+  .fursan-trials-intro-subtitle {
     font-size: 4.5vw;
   }
 
-  .background_image {
+  .fursan-trials-intro-image {
     height: 100%;
   }
 
-  .wow_location_icon {
+  .fursan-trials-intro-location-icon {
     margin-left: 0;
     font-size: 9vw;
   }
@@ -1489,10 +1480,10 @@ footer * {
     font-size: 3vw;
   }
 
-  .neon_button {
+  .fursan-trials-intro-button {
     margin-top: 5px;
-    padding: 1vw 2vw;
-    font-size: 3vw;
+    padding: 2vw 3vw;
+    font-size: 4vw;
   }
 
 
@@ -1503,12 +1494,12 @@ footer * {
 
 
   /* Chat Sidebar */
-  #mughader_chat_sidebar {
+  #fursan-trials-chat-sidebar {
     width: 100vw;
   }
 
   /* Chatbot Icon */
-  #mughader_chatbot_icon {
+  #fursan-trials-chatbot-icon {
     width: 10vmax;
   }
 
@@ -1528,26 +1519,26 @@ footer * {
 
 
 
-  .full_screen_container {
+  .full-screen-container {
     flex-direction: column;
     justify-content: center;
     padding: 20px 0;
     gap: 15px;
   }
 
-  .exit_button,
-  .full_screen_title,
-  .full_screen_image,
-  .whatsapp_button {
+  .exit-button,
+  .full-screen-title,
+  .full-screen-image,
+  .whatsapp-button {
     text-align: center;
   }
 
-  .full_screen_image {
+  .full-screen-image {
     max-width: 95vw;
     max-height: 50vh;
   }
 
-  .exit_button {
+  .exit-button {
     width: fit-content;
     padding: 2px 10px;
     margin-right: 10px;
@@ -1563,11 +1554,11 @@ footer * {
 
 
   /* WhatsApp Code */
-  .whatsapp_icon_div {
+  .fursan-trials-whatsapp-icon-div {
     font-size: 3vw;
   }
 
-  .whatsapp_icon_div ion-icon {
+  .fursan-trials-whatsapp-icon-div ion-icon {
     font-size: 4.2vw;
   }
 
@@ -1596,24 +1587,19 @@ footer * {
 @media (max-width: 600px) {
 
   /* Logo */
-  .mughader_header_logo {
+  .fursan-trials-header-logo {
     width: 40vw;
   }
 
 
 
 
-  .email_subscription_form input {
+  .fursan-trials-email-subscription-form input {
     width: 100%;
   }
 
-  .email_subscription_form {
+  .fursan-trials-email-subscription-form {
     flex-direction: column;
-  }
-
-  /* Page Intro Section */
-  .wow_effect_section {
-    height: 40vh;
   }
 
 
@@ -1637,7 +1623,7 @@ footer * {
   }
 
   footer img {
-    width: 40vw;
+    width: 45vw;
   }
 }
 
@@ -1653,7 +1639,8 @@ footer * {
 
 /* Responsive Design */
 @media (max-width: 400px) {
-  .mughader_header_container {
+
+  .fursan-trials-header-container {
     justify-content: space-between;
   }
 
@@ -1666,22 +1653,13 @@ footer * {
 
 
 
-
-  /* First Section Subtitle Styling */
-  .wow_effect_section {
-    height: 35vh;
-  }
-
-  .neon_text_container {
+  /* Page Intro Section */
+  .fursan-trials-intro-text-container {
     width: 95vw;
     padding: 0 2px;
   }
 
   .our-location-address-div a {
-    font-size: 4vw;
-  }
-
-  .neon_button {
     font-size: 4vw;
   }
 
@@ -1694,19 +1672,19 @@ footer * {
 
 
   /* Ai Bot Code */
-  #mughader_chatbot_icon {
+  #fursan-trials-chatbot-icon {
     width: 8vmax;
   }
 
-  #mughader_close_chat {
+  #fursan-trials-close-chat {
     font-size: 1.5rem;
   }
 
-  #mughader_chat_input {
+  #fursan-trials-chat-input {
     padding: 5px;
   }
 
-  #mughader_chat_input button {
+  #fursan-trials-chat-input button {
     font-size: 0.9rem;
   }
 
@@ -1719,7 +1697,7 @@ footer * {
 
 
   /* Title */
-  .full_screen_title {
+  .full-screen-title {
     font-size: 5vw;
     margin-bottom: 0;
   }
@@ -1728,19 +1706,19 @@ footer * {
 
 
   /* About Us Section */
-  .mughader_last_section * {
+  .fursan-trials-last-section * {
     font-size: 2.8vw;
   }
 
-  .cta_text {
+  .cta-text {
     font-size: 3.8vw;
   }
 
-  .email_subscription_form button {
+  .fursan-trials-email-subscription-form button {
     font-size: 4.5vw;
   }
 
-  .email_subscription_form input {
+  .fursan-trials-email-subscription-form input {
     font-size: 4.5vw;
     padding: 2px 3px;
   }
@@ -1756,51 +1734,51 @@ footer * {
 
 
 
-  .mughader_customers_comments_section h6 {
+  .fursan-trials-customers-comments-section h6 {
     font-size: 5.5vw;
   }
 
-  .indoforall_rate_div {
+  .fursan-trials-rate-div {
     min-width: 90vw;
     margin: 0 5px;
   }
 
-  .indoforall_clint_rate_date_div h3 {
+  .fursan-trials-clint-rate-date-div h3 {
     font-size: 3.5vw;
   }
 
-  .indoforall_clint_rate_info_div img {
+  .fursan-trials-clint-rate-info-div img {
     width: 8.5vw;
   }
 
-  .indoforall_clint_rate_info_div h4 {
+  .fursan-trials-clint-rate-info-div h4 {
     font-size: 3.5vw;
   }
 
-  .indoforall_clint_rate_comment_div h5 {
+  .fursan-trials-clint-rate-comment-div h5 {
     font-size: 3.5vw;
   }
 
-  .indoforall_clint_rate_star_div {
+  .fursan-trials-clint-rate-star-div {
     margin-top: 8px;
     font-size: 5vw;
   }
 
-  .indoforall_insert_comment_form_div {
+  .fursan-trials-insert-comment-form-div {
     width: 100vw;
     padding: 5px 10px;
   }
 
-  .indoforall_insert_comment_form_div h3 {
+  .fursan-trials-insert-comment-form-div h3 {
     font-size: 5vw;
     margin-bottom: 5px;
   }
 
-  #indoforall_comment_form label {
+  #fursan-trials-comment-form label {
     font-size: 4vw;
   }
 
-  #indoforall_comment_form button {
+  #fursan-trials-comment-form button {
     font-size: 4vw;
   }
 
@@ -1809,11 +1787,11 @@ footer * {
 
 
   /* WhatsApp Code */
-  .whatsapp_icon_div {
+  .fursan-trials-whatsapp-icon-div {
     font-size: 4vw;
   }
 
-  .whatsapp_icon_div ion-icon {
+  .fursan-trials-whatsapp-icon-div ion-icon {
     font-size: 5vw;
   }
 }

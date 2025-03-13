@@ -1,6 +1,6 @@
 function toggleSidebar() {
-    const sidebar = document.getElementById("mughader_mobile_sidebar");
-    const overlay = document.getElementById("mughader_sidebar_overlay");
+    const sidebar = document.getElementById("fursan-trials-mobile-sidebar");
+    const overlay = document.getElementById("fursan-trials-sidebar-overlay");
 
     if (sidebar.style.right === "0px") {
         closeSidebar();
@@ -13,8 +13,8 @@ function toggleSidebar() {
 }
 
 function closeSidebar() {
-    const sidebar = document.getElementById("mughader_mobile_sidebar");
-    const overlay = document.getElementById("mughader_sidebar_overlay");
+    const sidebar = document.getElementById("fursan-trials-mobile-sidebar");
+    const overlay = document.getElementById("fursan-trials-sidebar-overlay");
 
     sidebar.style.right = "-250px"; // Hide sidebar
     overlay.classList.remove("active"); // Hide overlay
@@ -23,10 +23,10 @@ function closeSidebar() {
 }
 
 function outsideClickListener(event) {
-    const sidebar = document.getElementById("mughader_mobile_sidebar");
+    const sidebar = document.getElementById("fursan-trials-mobile-sidebar");
 
     // Check if the clicked target is outside the sidebar and the menu button
-    if (!sidebar.contains(event.target) && !event.target.closest(".mughader_mobile_menu_icon")) {
+    if (!sidebar.contains(event.target) && !event.target.closest(".fursan-trials-mobile-menu-icon")) {
         closeSidebar();
     }
 }
@@ -34,7 +34,7 @@ function outsideClickListener(event) {
 // Scroll event handler
 function handleScroll() {
     const currentScrollPosition = window.scrollY;
-    const header = document.getElementById("mughader_header");
+    const header = document.getElementById("fursan-trials-header");
 
     if (currentScrollPosition > lastScrollPosition) {
         // Scrolling down
@@ -71,13 +71,14 @@ window.addEventListener("scroll", handleScroll);
 
 
 
-let chatbotIcon = document.getElementById("mughader_chatbot_icon");
-let chatSidebar = document.getElementById("mughader_chat_sidebar");
-let closeChat = document.getElementById("mughader_close_chat");
-let sendBtn = document.getElementById("mughader_send_btn");
-let messageBar = document.getElementById("mughader_message_bar");
-let messageBox = document.querySelector(".mughader_message_box");
-let chatOverlay = document.getElementById("mughader_chat_overlay");
+/* Ai bot chat functionality */
+let chatbotIcon = document.getElementById("fursan-trials-chatbot-icon");
+let chatSidebar = document.getElementById("fursan-trials-chat-sidebar");
+let closeChat = document.getElementById("fursan-trials-close-chat");
+let sendBtn = document.getElementById("fursan-trials-send-btn");
+let messageBar = document.getElementById("fursan-trials-message-bar");
+let messageBox = document.querySelector(".fursan-trials-message-box");
+let chatOverlay = document.getElementById("fursan-trials-chat-overlay");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
 let API_KEY = "sk-***76cA";
@@ -119,7 +120,7 @@ sendBtn.onclick = function () {
 
         let botResponse = `
                 <div class="chat response">
-                    <img src="مكتب-سياحي/مكتب-سياحي-بحريني.webp">
+                    <img src="مكتب-سياحي/مكتب-سياحي.webp">
                     <span class="new">...</span>
                 </div>
             `;
@@ -156,7 +157,7 @@ sendBtn.onclick = function () {
 
 
 
-        document.getElementById("mughader_message_bar").style.height = "40px"; // Reset to default height;
+        document.getElementById("fursan-trials-message-bar").style.height = "40px"; // Reset to default height;
     }
 };
 
@@ -200,7 +201,7 @@ messageBar.addEventListener("input", function () {
 });
 
 // Handle Dynamic Text Direction
-document.querySelectorAll('.mughader_dynamic_direction_input_class').forEach(input => {
+document.querySelectorAll('.fursan-trials-dynamic-direction-input-class').forEach(input => {
     input.addEventListener('input', function () {
         let firstChar = this.value.trim().charAt(0);
 
@@ -323,86 +324,86 @@ function scrollToMiddleOfElement(className) {
 const sectionData = [
     {
         title: 'أحدث العروض',
-        image_1: ['عروض-شركة-فرسان-العالم/احدث-العروض/1.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/احدث-العروض/2.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
-        image_3: ['عروض-شركة-فرسان-العالم/احدث-العروض/3.jpg', 'رحلة اذربيجان 5 أيام | باكو & قبالا & شاهداغ'],
-        image_4: ['عروض-شركة-فرسان-العالم/احدث-العروض/4.jpg', 'رحلة اذربيجان 8 أيام | باكو & قبالا & شاهداغ'],
-        image_5: ['عروض-شركة-فرسان-العالم/احدث-العروض/5.jpg', 'رحلة اذربيجان 8 أيام'],
+        image_1: ['عروض-فرسان-العالم/احدث-العروض/1.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
+        image_2: ['عروض-فرسان-العالم/احدث-العروض/2.jpg', 'رحلة عيد الفطر | طرابزون 5 أيام'],
+        image_3: ['عروض-فرسان-العالم/احدث-العروض/3.jpg', 'رحلة اذربيجان 5 أيام | باكو & قبالا & شاهداغ'],
+        image_4: ['عروض-فرسان-العالم/احدث-العروض/4.jpg', 'رحلة اذربيجان 8 أيام | باكو & قبالا & شاهداغ'],
+        image_5: ['عروض-فرسان-العالم/احدث-العروض/5.jpg', 'رحلة اذربيجان 8 أيام'],
     },
 
     {
         title: 'عروض روسيا',
-        image_1: ['عروض-شركة-فرسان-العالم/روسيا/1.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
-        image_2: ['عروض-شركة-فرسان-العالم/روسيا/2.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
-        image_3: ['عروض-شركة-فرسان-العالم/روسيا/3.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
-        image_4: ['عروض-شركة-فرسان-العالم/روسيا/4.jpg', 'رحلة روسيا البيضاء - 8 أيام'],
+        image_1: ['عروض-فرسان-العالم/روسيا/1.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_2: ['عروض-فرسان-العالم/روسيا/2.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_3: ['عروض-فرسان-العالم/روسيا/3.jpg', 'رحلة موسكو & بيترسبورغ & موسكو'],
+        image_4: ['عروض-فرسان-العالم/روسيا/4.jpg', 'رحلة روسيا البيضاء - 8 أيام'],
     },
 
     {
         title: 'عروض اذربيجان',
-        image_1: ['عروض-شركة-فرسان-العالم/اذربيجان/1.jpg', 'رحلة باكو & قبالا & شاهداغ'],
-        image_2: ['عروض-شركة-فرسان-العالم/اذربيجان/2.jpg', 'رحلة باكو & قبالا & شاهداغ'],
-        image_3: ['عروض-شركة-فرسان-العالم/اذربيجان/3.jpg', 'رحلة اذربيجان - 8 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/اذربيجان/4.jpg', 'رحلة اذربيجان - 7 أيام'],
+        image_1: ['عروض-فرسان-العالم/اذربيجان/1.jpg', 'رحلة باكو & قبالا & شاهداغ'],
+        image_2: ['عروض-فرسان-العالم/اذربيجان/2.jpg', 'رحلة باكو & قبالا & شاهداغ'],
+        image_3: ['عروض-فرسان-العالم/اذربيجان/3.jpg', 'رحلة اذربيجان - 8 أيام'],
+        image_4: ['عروض-فرسان-العالم/اذربيجان/4.jpg', 'رحلة اذربيجان - 7 أيام'],
     },
 
     {
         title: 'عروض اندونيسيا',
-        image_1: ['عروض-شركة-فرسان-العالم/اندونيسيا/1.jpg', 'رحلة اندونيسيا - 8 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/اندونيسيا/2.jpg', 'رحلة اندونيسيا - 10 أيام'],
+        image_1: ['عروض-فرسان-العالم/اندونيسيا/1.jpg', 'رحلة اندونيسيا - 8 أيام'],
+        image_2: ['عروض-فرسان-العالم/اندونيسيا/2.jpg', 'رحلة اندونيسيا - 10 أيام'],
     },
 
     {
         title: 'عروض طرابزون',
-        image_1: ['عروض-شركة-فرسان-العالم/طرابزون/1.jpg', 'رحلة طرابزون -  5 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/طرابزون/2.jpg', 'رحلة طرابزون -  6 أيام'],
-        image_3: ['عروض-شركة-فرسان-العالم/طرابزون/3.jpg', 'رحلة طرابزون -  7 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/طرابزون/4.jpg', 'رحلة طرابزون -  8 أيام'],
-        image_5: ['عروض-شركة-فرسان-العالم/طرابزون/5.jpg', 'رحلة طرابزون -  9 أيام'],
+        image_1: ['عروض-فرسان-العالم/طرابزون/1.jpg', 'رحلة طرابزون -  5 أيام'],
+        image_2: ['عروض-فرسان-العالم/طرابزون/2.jpg', 'رحلة طرابزون -  6 أيام'],
+        image_3: ['عروض-فرسان-العالم/طرابزون/3.jpg', 'رحلة طرابزون -  7 أيام'],
+        image_4: ['عروض-فرسان-العالم/طرابزون/4.jpg', 'رحلة طرابزون -  8 أيام'],
+        image_5: ['عروض-فرسان-العالم/طرابزون/5.jpg', 'رحلة طرابزون -  9 أيام'],
     },
 
     {
         title: 'عروض اسطنبول',
-        image_1: ['عروض-شركة-فرسان-العالم/اسطنبول/1.jpg', 'رحلة اسطنبول -  5 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/اسطنبول/2.jpg', 'رحلة اسطنبول -  6 أيام'],
-        image_3: ['عروض-شركة-فرسان-العالم/اسطنبول/3.jpg', 'رحلة اسطنبول -  7 أيام'],
-        image_4: ['عروض-شركة-فرسان-العالم/اسطنبول/4.jpg', 'رحلة اسطنبول -  8 أيام'],
-        image_5: ['عروض-شركة-فرسان-العالم/اسطنبول/5.jpg', 'رحلة اسطنبول -  9 أيام'],
-        image_6: ['عروض-شركة-فرسان-العالم/اسطنبول/6.jpg', 'رحلة اسطنبول -  10 أيام'],
+        image_1: ['عروض-فرسان-العالم/اسطنبول/1.jpg', 'رحلة اسطنبول -  5 أيام'],
+        image_2: ['عروض-فرسان-العالم/اسطنبول/2.jpg', 'رحلة اسطنبول -  6 أيام'],
+        image_3: ['عروض-فرسان-العالم/اسطنبول/3.jpg', 'رحلة اسطنبول -  7 أيام'],
+        image_4: ['عروض-فرسان-العالم/اسطنبول/4.jpg', 'رحلة اسطنبول -  8 أيام'],
+        image_5: ['عروض-فرسان-العالم/اسطنبول/5.jpg', 'رحلة اسطنبول -  9 أيام'],
+        image_6: ['عروض-فرسان-العالم/اسطنبول/6.jpg', 'رحلة اسطنبول -  10 أيام'],
     },
 
     {
         title: 'عروض ماليزيا',
-        image_1: ['عروض-شركة-فرسان-العالم/ماليزيا/1.jpg', 'رحلة ماليزيا -  8 أيام'],
-        image_2: ['عروض-شركة-فرسان-العالم/ماليزيا/2.jpg', 'رحلة ماليزيا -  10 أيام'],
+        image_1: ['عروض-فرسان-العالم/ماليزيا/1.jpg', 'رحلة ماليزيا -  8 أيام'],
+        image_2: ['عروض-فرسان-العالم/ماليزيا/2.jpg', 'رحلة ماليزيا -  10 أيام'],
     },
 
     {
         title: 'عروض تايلاند',
-        image_1: ['عروض-شركة-فرسان-العالم/تايلاند/1.jpg', 'رحلة تايلاند - 7 ليالي'],
-        image_2: ['عروض-شركة-فرسان-العالم/تايلاند/2.jpg', 'رحلة تايلاند - 9 ليالي'],
-        image_3: ['عروض-شركة-فرسان-العالم/تايلاند/3.jpg', 'رحلة تايلاند - 7 ليالي'],
-        image_4: ['عروض-شركة-فرسان-العالم/تايلاند/4.jpg', 'رحلة تايلاند - 9 ليالي'],
+        image_1: ['عروض-فرسان-العالم/تايلاند/1.jpg', 'رحلة تايلاند - 7 ليالي'],
+        image_2: ['عروض-فرسان-العالم/تايلاند/2.jpg', 'رحلة تايلاند - 9 ليالي'],
+        image_3: ['عروض-فرسان-العالم/تايلاند/3.jpg', 'رحلة تايلاند - 7 ليالي'],
+        image_4: ['عروض-فرسان-العالم/تايلاند/4.jpg', 'رحلة تايلاند - 9 ليالي'],
     },
 ];
 
 // Function to dynamically create the section
 function createScrollableCardsSection(dataArray) {
-    const section = document.getElementById("scrollable_cards_section_id");
+    const section = document.getElementById("fursan-trials-scrollable-cards-section-id");
 
     dataArray.forEach((data) => {
         const container = document.createElement('div');
-        container.className = 'scrollable_cards_container';
+        container.className = 'fursan-trials-scrollable-cards-container';
 
         // Create the title
         const title = document.createElement('h2');
-        title.className = 'scrollable_section_title';
+        title.className = 'fursan-trials-scrollable-section-title';
         title.innerText = data.title;
         container.appendChild(title);
 
         // Create the scrollable row
         const scrollableRow = document.createElement('div');
-        scrollableRow.className = 'scrollable_cards_row';
+        scrollableRow.className = 'fursan-trials-scrollable-cards-row';
 
         // Loop through the images and create cards
         Object.keys(data).forEach((key) => {
@@ -410,7 +411,7 @@ function createScrollableCardsSection(dataArray) {
                 const [src, text] = data[key];
 
                 const card = document.createElement('div');
-                card.className = 'scrollable_card';
+                card.className = 'fursan-trials-scrollable-card';
 
                 const img = document.createElement('img');
                 img.src = src;
@@ -516,12 +517,12 @@ createScrollableCardsSection(sectionData);
 
 
 /* Function for import all comments from google sheet */
-document.getElementById("indoforall_comment_form").addEventListener("submit", async function (event) {
+document.getElementById("fursan-trials-comment-form").addEventListener("submit", async function (event) {
     event.preventDefault(); // Prevent page refresh
 
-    let name = document.getElementById("indoforall_comment_username").value.trim();
-    let comment = document.getElementById("indoforall_comment_text").value.trim();
-    let stars = document.getElementById("indoforall_comment_stars").value;
+    let name = document.getElementById("fursan-trials-comment-username").value.trim();
+    let comment = document.getElementById("fursan-trials-comment-text").value.trim();
+    let stars = document.getElementById("fursan-trials-comment-stars").value;
 
 
     let formData = new URLSearchParams();
@@ -538,7 +539,7 @@ document.getElementById("indoforall_comment_form").addEventListener("submit", as
         let data = await response.text();
 
         if (data === "Success") {
-            document.getElementById("indoforall_comment_form").reset();
+            document.getElementById("fursan-trials-comment-form").reset();
 
             await fetchReviews(); // Wait until fetchReviews() is fully executed
 
@@ -553,7 +554,7 @@ function fetchReviews() {
     fetch("https://script.google.com/macros/s/AKfycbyBAJQhhVA5Uhxe2rrEZ4rjB0Ttn4SrYBptwjx47VZlxtgi3dENPfmNyAmrfL-QZpdEnQ/exec")
         .then(response => response.json())
         .then(data => {
-            let indoforall_clint_rate_area = document.getElementById("indoforall_clint_rate_area");
+            let indoforall_clint_rate_area = document.getElementById("fursan-trials-clint-rate-area");
             indoforall_clint_rate_area.innerHTML = ""; // Clear old reviews
 
             data.reverse().forEach(item => { // Reverse to show newest first
@@ -563,23 +564,23 @@ function fetchReviews() {
                 if (!comment.trim()) return;
 
                 let clintRateDiv = document.createElement("div");
-                clintRateDiv.classList.add("indoforall_rate_div");
+                clintRateDiv.classList.add("fursan-trials-rate-div");
 
                 clintRateDiv.innerHTML = `
-                <div class="indoforall_clint_rate_date_div indoforall_animate_on_scroll">
-                    <h3 class="indoforall_animate_on_scroll">${date}</h3>
+                <div class="indoforall_clint_rate_date_div">
+                    <h3>${date}</h3>
                 </div>
 
-                <div class="indoforall_clint_rate_info_div indoforall_animate_on_scroll">
+                <div class="fursan-trials-clint-rate-info-div">
                     <img src="مكتب-سياحي/مكتب-سياحي.webp" alt="فرسان العالم - مكتب سياحي" title="فرسان العالم - مكتب سياحي">
                     <h4>${name}</h4>
                 </div>
 
-                <div class="indoforall_clint_rate_comment_div">
+                <div class="fursan-trials-clint-rate-comment-div">
                     <h5>${comment}</h5>
                 </div>
 
-                <div class="indoforall_clint_rate_star_div">
+                <div class="fursan-trials-clint-rate-star-div">
                     ${"★".repeat(starAmount)}
                 </div>
             `;
@@ -635,7 +636,7 @@ fetchReviews();
 
 
 /* Function to trach the first inserted letter in the inputs with the class name of "mughader_dynamic_direction_input_class" to set their direction value */
-document.querySelectorAll('.mughader_dynamic_direction_input_class').forEach(input => {
+document.querySelectorAll('.fursan-trials-dynamic-direction-input-class').forEach(input => {
     input.addEventListener('input', function () {
         let firstChar = this.value.trim().charAt(0);
 
