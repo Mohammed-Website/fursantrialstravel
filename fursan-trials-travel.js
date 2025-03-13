@@ -567,7 +567,7 @@ function fetchReviews() {
                 clintRateDiv.classList.add("fursan-trials-rate-div");
 
                 clintRateDiv.innerHTML = `
-                <div class="indoforall_clint_rate_date_div">
+                <div class="fursan-trials-clint-rate-date-div">
                     <h3>${date}</h3>
                 </div>
 
